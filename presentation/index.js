@@ -130,19 +130,6 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide bgColor='secondary'>
-          <Text textColor='tertiary' textAlign='left' italic>Introducing</Text>
-          <Text textColor='primary' fit>Shrinkers</Text>
-        </Slide>
-        <Slide bgColor='secondary'>
-          <Heading textColor='tertiary' fit caps>Shrinkers</Heading>
-          <Text textColor='primary' fit>exist for when a test fails.</Text>
-        </Slide>
-        <Slide bgColor='secondary'>
-          <Heading textColor='tertiary' fit caps>Shrinkers</Heading>
-          <Text textColor='primary' fit>find the smallest input</Text>
-          <Text textColor='primary' fit>that still fails the test.</Text>
-        </Slide>
-        <Slide bgColor='secondary'>
           <Text textColor='tertiary' textAlign='left' italic>More about</Text>
           <Text textColor='primary' fit>Generators</Text>
         </Slide>
@@ -172,6 +159,19 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide bgColor='quartenary'>
           <Heading textColor='primary' fit caps>Fizzbuzz</Heading>
+        </Slide>
+        <Slide bgColor='secondary'>
+          <Text textColor='tertiary' textAlign='left' italic>Introducing</Text>
+          <Text textColor='primary' fit>Shrinkers</Text>
+        </Slide>
+        <Slide bgColor='secondary'>
+          <Heading textColor='tertiary' fit caps>Shrinkers</Heading>
+          <Text textColor='primary' fit>exist for when a test fails.</Text>
+        </Slide>
+        <Slide bgColor='secondary'>
+          <Heading textColor='tertiary' fit caps>Shrinkers</Heading>
+          <Text textColor='primary' fit>find the smallest input</Text>
+          <Text textColor='primary' fit>that still fails the test.</Text>
         </Slide>
         <Slide bgColor='secondary'>
           <Heading textColor='tertiary' fit caps>Language Support</Heading>
