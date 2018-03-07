@@ -10,8 +10,10 @@ import {
   List,
   ListItem,
   CodePane,
+  Code,
   Layout,
-  Fill
+  Fill,
+  Image
 } from 'spectacle'
 
 // Import theme
@@ -106,6 +108,16 @@ export default class Presentation extends React.Component {
           <Text textColor='primary' fit>the ability to generate inputs</Text>
           <Text textColor='primary' fit>is already valuable.</Text>
         </Slide>
+        <Slide bgColor='secondary'>
+          <Heading textColor='tertiary' fit caps>Builtin Generators</Heading>
+          <List>
+            <ListItem textColor='primary'>integer</ListItem>
+            <ListItem textColor='primary'>integer(min: integer, max: integer)</ListItem>
+            <ListItem textColor='primary'>number(min: number, max: number)</ListItem>
+            <ListItem textColor='primary'>asciinestring</ListItem>
+            <ListItem textColor='primary'>(... many many more)</ListItem>
+          </List>
+        </Slide>
         <Slide bgColor='quartenary'>
           <Heading textColor='primary' fit caps>Addition</Heading>
         </Slide>
@@ -129,10 +141,6 @@ export default class Presentation extends React.Component {
             overflow='overflow'
           />
         </Slide>
-        <Slide bgColor='secondary'>
-          <Text textColor='tertiary' textAlign='left' italic>More about</Text>
-          <Text textColor='primary' fit>Generators</Text>
-        </Slide>
         <Slide bgColor='primary'>
           <Heading textColor='secondary' caps fit>What properties</Heading>
           <Heading textColor='secondary' caps fit>can be tested?</Heading>
@@ -140,14 +148,18 @@ export default class Presentation extends React.Component {
         <Slide bgColor='secondary'>
           <Heading textColor='tertiary' lineHeight={2} fit caps>Different paths, same goal</Heading>
           <Text textColor='primary' fit><i>E.g.</i>: commutativity, associativity.</Text>
+          <Image src="https://fsharpforfunandprofit.com/assets/img/property_commutative.png" />
         </Slide>
         <Slide bgColor='secondary'>
           <Heading textColor='tertiary' lineHeight={2} fit caps>Roundtrip tests</Heading>
           <Text textColor='primary' fit><i>E.g.</i>: serialisation/deserialisation, getters/setters.</Text>
+          <Image src="https://fsharpforfunandprofit.com/assets/img/property_invariant.png" />
         </Slide>
         <Slide bgColor='secondary'>
-          <Heading textColor='tertiary' lineHeight={2} fit caps>Immutability</Heading>
+          <Heading textColor='tertiary' lineHeight={2} fit caps>Invariants</Heading>
           <Text textColor='primary' fit><i>E.g.</i>: mapped collection length.</Text>
+          <Text textColor='primary' fit>list.sort -> same elements, same size</Text>
+          <Image src="https://fsharpforfunandprofit.com/assets/img/property_invariant.png" />
         </Slide>
         <Slide bgColor='secondary'>
           <Heading textColor='tertiary' lineHeight={2} fit caps>Idempotence</Heading>
@@ -160,9 +172,28 @@ export default class Presentation extends React.Component {
         <Slide bgColor='quartenary'>
           <Heading textColor='primary' fit caps>Fizzbuzz</Heading>
         </Slide>
+        <Slide bgColor="secondary">
+          <Heading textColor="tertiary" fit caps>Composing Generators</Heading>
+          <CodePane
+            lang="javascript"
+            source={`
+const email = jsc.asciinestring.generator.map(str => \`\${str}@gmail.com\`)
+
+const person = jsc.record({
+  first: jsc.asciinestring,
+  last: jsc.asciinestring,
+  age : jsc.integer(0,99),
+  email: jsc.bless({ generator: email })
+})
+            `.trim()}
+            margin="30px auto"
+            overflow="overflow"
+            style={{ fontSize: "1.2rem" }}
+          />
+        </Slide>
         <Slide bgColor='secondary'>
           <Text textColor='tertiary' textAlign='left' italic>Introducing</Text>
-          <Text textColor='primary' fit>Shrinkers</Text>
+          <Text textColor='primary' fit>Shrinkers and Filters</Text>
         </Slide>
         <Slide bgColor='secondary'>
           <Heading textColor='tertiary' fit caps>Shrinkers</Heading>
@@ -203,6 +234,19 @@ export default class Presentation extends React.Component {
             source={require('raw-loader!../assets/datetime.output.2.ts.example')}
             margin='30px auto'
             overflow='overflow'
+          />
+        </Slide>
+        <Slide bgColor='secondary'>
+          <Heading textColor='tertiary'  caps>Filters</Heading>
+          <CodePane
+            lang="javascript"
+            source={`
+            const minor = jsc.suchthat(arbUser, (user) => user.age < 18 )
+
+            `.trim()}
+            style={{ fontSize: "1.5rem" }}
+            margin="30px auto"
+            overflow="overflow"
           />
         </Slide>
         <Slide bgColor='secondary'>
