@@ -174,6 +174,38 @@ export default class Presentation extends React.Component {
           <Text textColor='primary' fit>that still fails the test.</Text>
         </Slide>
         <Slide bgColor='secondary'>
+          <Heading textColor='tertiary' fit caps>Arbitrary datetime</Heading>
+          <Text>(with shrink function)</Text>
+          <CodePane
+            lang='typescript'
+            source={require('raw-loader!../assets/datetime.1.ts.example')}
+            margin='30px auto'
+            overflow='overflow'
+          />
+          <CodePane
+            lang='markdown'
+            source={require('raw-loader!../assets/datetime.output.1.ts.example')}
+            margin='30px auto'
+            overflow='overflow'
+          />
+        </Slide>
+        <Slide bgColor='secondary'>
+          <Heading textColor='tertiary' fit caps>Arbitrary datetime</Heading>
+          <Text>(without shrink function)</Text>
+          <CodePane
+            lang='typescript'
+            source={require('raw-loader!../assets/datetime.2.ts.example')}
+            margin='30px auto'
+            overflow='overflow'
+          />
+          <CodePane
+            lang='markdown'
+            source={require('raw-loader!../assets/datetime.output.2.ts.example')}
+            margin='30px auto'
+            overflow='overflow'
+          />
+        </Slide>
+        <Slide bgColor='secondary'>
           <Heading textColor='tertiary' fit caps>Language Support</Heading>
           <Layout>
             <Fill>

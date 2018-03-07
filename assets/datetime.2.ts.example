@@ -1,0 +1,13 @@
+import { property, nat, bless } from 'jsverify'
+
+const datetime = bless({
+  generator: nat.generator.map(n => new Date(n * 768000000))
+  // No shrinker!
+})
+
+describe('Arbitrary datetime with bless', () => {
+  property('generates dates', datetime, d => d instanceof Date)
+
+  // This will fail, but notice how the unshrunk value is less helpful:
+  property('generates future dates', datetime, d => d > new Date())
+})
