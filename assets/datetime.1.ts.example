@@ -1,9 +1,9 @@
 import { property, nat } from 'jsverify'
 
-const datetime = nat.smap(
-  n => new Date(n * 768000000), // f: generator
-  d => d.getTime() / 768000000, // g: shrink, f(g(y)) = y for every y
-  d => d.toString()             // show
+const datetime = nat(Number.MAX_SAFE_INTEGER).smap(
+  n => new Date(n), // f: generator
+  d => d.getTime(), // g: shrink, f(g(y)) = y for every y
+  d => d.toString() // show
 )
 
 describe('Arbitrary datetime with smap', () => {

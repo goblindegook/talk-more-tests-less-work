@@ -1,7 +1,7 @@
 import { property, nat, bless } from 'jsverify'
 
 const datetime = bless({
-  generator: nat.generator.map(n => new Date(n * 768000000))
+  generator: nat(Number.MAX_SAFE_INTEGER).generator.map(n => new Date(n))
   // No shrinker!
 })
 
