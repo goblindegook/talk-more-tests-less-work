@@ -49,7 +49,7 @@ export default class Presentation extends React.Component {
           </Text>
           <Text bold italic textColor='secondary'>Miguel Duarte &middot; Luís Rodrigues</Text>
           <Text textColor='secondary'>Equal Experts</Text>
-          <Text textColor='quartenary' style={{ margin: '20px 0 0' }}>February 21, 2018</Text>
+          <Text textColor='quartenary' style={{ margin: '20px 0 0' }}>March 7, 2018</Text>
         </Slide>
         <Slide bgColor='primary'>
           <Heading textColor='secondary' caps fit>Why test?</Heading>
