@@ -1,3 +1,3 @@
-  ● Arbitrary datetime with smap › generates future dates
+  ● Arbitrary datetime with bless › generates past dates
 
-    Failed after 1 tests and 2 shrinks. rngState: 0415f467b9830cd2ea; Counterexample: Thu Jan 01 1970 00:00:00 GMT+0000 (CET);
+    Failed after 1 tests and 0 shrinks. rngState: 0a4d7bc2e1690f538a; Counterexample: "2214-12-20T20:20:16.800Z";

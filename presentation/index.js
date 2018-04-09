@@ -206,7 +206,7 @@ const person = jsc.record({
         </Slide>
         <Slide bgColor='secondary'>
           <Heading textColor='tertiary' fit caps>Arbitrary datetime</Heading>
-          <Text>(with shrink function)</Text>
+          <Text>(without shrink function)</Text>
           <CodePane
             lang='typescript'
             source={require('raw-loader!../assets/datetime.1.ts.example')}
@@ -222,7 +222,7 @@ const person = jsc.record({
         </Slide>
         <Slide bgColor='secondary'>
           <Heading textColor='tertiary' fit caps>Arbitrary datetime</Heading>
-          <Text>(without shrink function)</Text>
+          <Text>(with shrink function)</Text>
           <CodePane
             lang='typescript'
             source={require('raw-loader!../assets/datetime.2.ts.example')}
@@ -241,7 +241,7 @@ const person = jsc.record({
           <CodePane
             lang="javascript"
             source={`
-            const minor = jsc.suchthat(arbUser, (user) => user.age < 18 )
+            const adult = jsc.suchthat(arbUser, (user) => user.age >= 18 )
 
             `.trim()}
             style={{ fontSize: "1.5rem" }}
